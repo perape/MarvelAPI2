@@ -23,8 +23,32 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         manager = LinearLayoutManager(this)
+        Toast.makeText(applicationContext, "OnCreate", Toast.LENGTH_LONG).show()
         getAllData()
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Toast.makeText(applicationContext, "OnDestroy", Toast.LENGTH_LONG).show()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Toast.makeText(applicationContext, "OnPause", Toast.LENGTH_LONG).show()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Toast.makeText(applicationContext, "OnResume", Toast.LENGTH_LONG).show()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Toast.makeText(applicationContext, "OnStart", Toast.LENGTH_LONG).show()
+    }
+
+
+
 
     private fun getRetrofit(): Retrofit {
         return Retrofit.Builder()
@@ -46,11 +70,9 @@ class MainActivity : AppCompatActivity() {
                     Log.i("Books", results.results?.books.toString())
 
                     recyclerView = findViewById<RecyclerView>(R.id.recycler_view).apply {
-
-                        /*
-                        * Completa el código y crea el adapter.
-                        * */
-
+                        layoutManager = manager
+                        myAdapter = BooksAdapter(results.results?.books)
+                        adapter = myAdapter
 
                     }
 

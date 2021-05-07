@@ -6,6 +6,8 @@ import android.util.Log
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -26,6 +28,10 @@ class MainActivity : AppCompatActivity() {
         manager = LinearLayoutManager(this)
         Toast.makeText(applicationContext, "OnCreate", Toast.LENGTH_LONG).show()
         getAllData()
+        // Write a message to the database
+        val database = Firebase.database
+        val myRef = database.getReference("message")
+        myRef.setValue("Hello, World!")
     }
 
     private fun getRetrofit(): Retrofit {

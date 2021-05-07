@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "470383137494",
+    "project_id": "marvelcomics-fa275",
+    "storage_bucket": "marvelcomics-fa275.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:470383137494:android:0e152445a9bd02265def77",
+        "android_client_info": {
+          "package_name": "edu.itesm.marvelapi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "470383137494-jj551b0ecqli6hkdn7sue2j6vg1ut81u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLvnN2Db8IKehkD4lPnsWQIEOuwFtqMlY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "470383137494-jj551b0ecqli6hkdn7sue2j6vg1ut81u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

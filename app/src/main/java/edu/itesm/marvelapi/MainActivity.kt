@@ -14,6 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : AppCompatActivity() {
     private val BASE_URL = "https://api.nytimes.com/svc/books/v3/lists/current/"
+    //private val BASE_URL = "https://gateway.marvel.com:443/v1/public/"
     private lateinit var recyclerView: RecyclerView
     private lateinit var manager: RecyclerView.LayoutManager
     private lateinit var myAdapter: RecyclerView.Adapter<*>

@@ -1,13 +1,8 @@
-package edu.itesm.nytimes
-
-import com.google.gson.annotations.SerializedName
-
+package edu.itesm.marvelapi
 
 data class Results(
     var results:Books?
 )
-
-
 
 data class Books(
     var books:List<Book>?

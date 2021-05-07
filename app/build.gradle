@@ -8,7 +8,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "edu.itesm.nytimes"
+        applicationId "edu.itesm.marvelapi"
         minSdkVersion 28
         targetSdkVersion 30
         versionCode 1

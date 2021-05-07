@@ -1,4 +1,4 @@
-package edu.itesm.nytimes
+package edu.itesm.marvelapi
 
 import android.view.LayoutInflater
 import android.view.View

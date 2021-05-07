@@ -1,4 +1,4 @@
-package edu.itesm.nytimes
+package edu.itesm.marvelapi
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -26,29 +26,6 @@ class MainActivity : AppCompatActivity() {
         Toast.makeText(applicationContext, "OnCreate", Toast.LENGTH_LONG).show()
         getAllData()
     }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Toast.makeText(applicationContext, "OnDestroy", Toast.LENGTH_LONG).show()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        Toast.makeText(applicationContext, "OnPause", Toast.LENGTH_LONG).show()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Toast.makeText(applicationContext, "OnResume", Toast.LENGTH_LONG).show()
-    }
-
-    override fun onStart() {
-        super.onStart()
-        Toast.makeText(applicationContext, "OnStart", Toast.LENGTH_LONG).show()
-    }
-
-
-
 
     private fun getRetrofit(): Retrofit {
         return Retrofit.Builder()

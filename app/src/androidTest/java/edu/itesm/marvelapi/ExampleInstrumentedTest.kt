@@ -1,4 +1,4 @@
-package edu.itesm.nytimes
+package edu.itesm.marvelapi
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

@@ -1,4 +1,4 @@
-package edu.itesm.nytimes
+package edu.itesm.marvelapi
 
 import org.junit.Test
 

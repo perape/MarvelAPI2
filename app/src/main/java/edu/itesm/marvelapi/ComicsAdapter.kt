@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
-class BooksAdapter(private val data: List<Book>?) : RecyclerView.Adapter<BooksAdapter.ViewHolder>()  {
+class ComicsAdapter(private val data: List<Book>?) : RecyclerView.Adapter<ComicsAdapter.ViewHolder>()  {
 
     class ViewHolder(val view: View): RecyclerView.ViewHolder(view){
 

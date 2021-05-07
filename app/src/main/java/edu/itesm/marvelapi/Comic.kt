@@ -13,7 +13,12 @@ data class Book(val rank: Int,
                 val description: String,
                 val book_image: String)
 
-/*data class Result(
+//Data class for comics
+data class Data(
+    var resultList:List<Result>?
+)
+
+data class Result(
     val title:String,
     val description:String,
     val prices:List<Price>,
@@ -26,7 +31,7 @@ data class Price (
 data class Thumbnail (
     val path: String,
     val extension: String
-)*/
+)
 
 
 

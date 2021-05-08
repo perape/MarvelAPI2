@@ -1,6 +1,26 @@
 package edu.itesm.marvelapi
 
-data class Results(
+data class Data(
+    var data:Datas?
+)
+
+data class Datas(
+    var results:List<Comicslist>?
+)
+
+
+data class Comicslist(
+    val title: String,
+    val description: String,
+    val thumbnail:Thumbnail
+)
+
+data class Thumbnail (
+    val path: String,
+    val extension: String
+)
+
+/*data class Results(
     var results:Books?
 )
 
@@ -12,11 +32,6 @@ data class Book(val rank: Int,
                 val title: String,
                 val description: String,
                 val book_image: String)
-
-//Data class for comics
-data class Data(
-    var resultList:List<Result>?
-)
 
 data class Result(
     val title:String,
@@ -31,7 +46,7 @@ data class Price (
 data class Thumbnail (
     val path: String,
     val extension: String
-)
+)*/
 
 
 

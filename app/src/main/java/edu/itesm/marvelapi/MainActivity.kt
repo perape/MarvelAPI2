@@ -15,12 +15,12 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : AppCompatActivity() {
-    private val BASE_URL = "https://api.nytimes.com/svc/books/v3/lists/current/"
+    private val BASE_URL = "https://gateway.marvel.com/v1/public/"
     //private val BASE_URL = "https://gateway.marvel.com:443/v1/public/"
     private lateinit var recyclerView: RecyclerView
     private lateinit var manager: RecyclerView.LayoutManager
     private lateinit var myAdapter: RecyclerView.Adapter<*>
-    private lateinit var results: Results
+    private lateinit var data: Data
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,14 +48,13 @@ class MainActivity : AppCompatActivity() {
         CoroutineScope(Dispatchers.IO).launch {
             val responseFromService = callToService.getBooks()
             runOnUiThread {
-                results = responseFromService.body() as Results
+                data = responseFromService.body() as Data
 
                 if (responseFromService.isSuccessful) {
-                    Log.i("Books", results.results?.books.toString())
-
+                    Log.i("Books",  data.data?.results.toString())
                     recyclerView = findViewById<RecyclerView>(R.id.recycler_view).apply {
                         layoutManager = manager
-                        myAdapter = ComicsAdapter(results.results?.books)
+                        myAdapter = ComicsAdapter(data.data?.results)
                         adapter = myAdapter
 
                     }

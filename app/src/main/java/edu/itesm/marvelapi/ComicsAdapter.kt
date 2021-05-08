@@ -8,11 +8,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
-class ComicsAdapter(private val data: List<Book>?) : RecyclerView.Adapter<ComicsAdapter.ViewHolder>()  {
+class ComicsAdapter(private val data: List<Comicslist>?) : RecyclerView.Adapter<ComicsAdapter.ViewHolder>()  {
 
     class ViewHolder(val view: View): RecyclerView.ViewHolder(view){
 
-        fun bind(property: Book){
+        fun bind(property: Comicslist){
             val title = view.findViewById<TextView>(R.id.tvTitle)
             val imageView = view.findViewById<ImageView>(R.id.imageView)
             val description = view.findViewById<TextView>(R.id.tvDescription)
@@ -21,9 +21,11 @@ class ComicsAdapter(private val data: List<Book>?) : RecyclerView.Adapter<Comics
             description.text = property.description
 
             Glide.with(view.context)
-                .load(property.book_image)
+                .load(property.thumbnail.path.plus(".jpg"))
                 .circleCrop()
                 .into(imageView)
+
+
         }
     }
 

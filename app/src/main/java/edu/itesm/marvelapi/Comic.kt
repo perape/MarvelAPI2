@@ -15,7 +15,7 @@ data class Datas(
 data class Comicslist(
     val title: String,
     val description: String,
-    val thumbnail:Thumbnail
+    val thumbnail:Thumbnail,
 )
 
 data class Thumbnail (
@@ -25,5 +25,6 @@ data class Thumbnail (
 
 @Parcelize
 data class Usuario(var nombre: String) : Parcelable
+
 
 

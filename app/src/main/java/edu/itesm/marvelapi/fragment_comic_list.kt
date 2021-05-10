@@ -5,14 +5,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import androidx.navigation.findNavController
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.fragment_comic_list.*
+import kotlinx.android.synthetic.main.fragment_login.*
 
-class ShoppingFragment : Fragment() {
+class fragment_comic_list : Fragment() {
+
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        cargaDatos()
 
     }
 
@@ -21,10 +26,13 @@ class ShoppingFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_shopping, container, false)
+        return inflater.inflate(R.layout.fragment_comic_list, container, false)
     }
 
-    private fun cargaDatos(){
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
 
     }
+
 }

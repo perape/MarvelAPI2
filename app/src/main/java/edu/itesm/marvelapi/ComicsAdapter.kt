@@ -12,7 +12,7 @@ import com.bumptech.glide.Glide
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-
+import kotlinx.android.synthetic.main.fragment_login.*
 
 class ComicsAdapter(private val data: List<Comicslist>?) : RecyclerView.Adapter<ComicsAdapter.ViewHolder>() {
 
@@ -51,36 +51,37 @@ class ComicsAdapter(private val data: List<Comicslist>?) : RecyclerView.Adapter<
             }
 
         }
-        public fun agregarcomic(title:String,description:String,image:Thumbnail,myRef:DatabaseReference) {
-            // Toast.makeText(itemView.getContext(), "$title", Toast.LENGTH_LONG).show();
+       public fun agregarcomic(title:String,description:String,image:Thumbnail,myRef:DatabaseReference) {
+           // Toast.makeText(itemView.getContext(), "$title", Toast.LENGTH_LONG).show();
             val compra = Comicslist(
-                title,
-                description,
-                image
-            )
-            val id =myRef.push().key
-            myRef.child(id!!).setValue(compra)
-            Toast.makeText(itemView.getContext(), "se ha agregado al carrito", Toast.LENGTH_LONG).show()
+                    title,
+                    description,
+                    image
+                )
+                val id =myRef.push().key
+                myRef.child(id!!).setValue(compra)
+           Toast.makeText(itemView.getContext(), "se ha agregado al carrito", Toast.LENGTH_LONG).show()
         }
     }
 
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val v =
-            LayoutInflater.from(parent.context).inflate(R.layout.list_ny_book, parent, false)
-        return ViewHolder(v)
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+            val v =
+                LayoutInflater.from(parent.context).inflate(R.layout.list_ny_book, parent, false)
+            return ViewHolder(v)
+        }
+
+        override fun getItemCount(): Int {
+            return data!!.size
+        }
+
+        override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+            holder.bind(data!![position])
+
+
+        }
+
+
     }
 
-    override fun getItemCount(): Int {
-        return data!!.size
-    }
-
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(data!![position])
-
-
-    }
-
-
-}

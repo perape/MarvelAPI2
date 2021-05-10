@@ -1,5 +1,6 @@
 package edu.itesm.marvelapi
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -30,6 +31,7 @@ class RegisterFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         auth = Firebase.auth
         database = Firebase.database.reference
+        nuevoUsuario = Usuario("")
         createButton.setOnClickListener {crearUsuario() }
     }
 
@@ -52,6 +54,8 @@ class RegisterFragment : Fragment() {
                         emailText.text.clear()
                         passwordText.text.clear()
                         password2Text.text.clear()
+                        val intent = Intent(activity, MainActivity::class.java)
+                        startActivity(intent)
                     }
                 }.addOnFailureListener{
                     Toast.makeText(this.context,it.toString(), Toast.LENGTH_LONG).show()

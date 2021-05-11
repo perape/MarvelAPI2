@@ -13,18 +13,23 @@ data class Datas(
 
 
 data class Comicslist(
-    val title: String,
-    val description: String,
-    val thumbnail:Thumbnail,
+    var title: String,
+    var description: String,
+    var thumbnail:Thumbnail,
 )
 
 data class Thumbnail (
-    val path: String,
-    val extension: String
+    var path: String,
+    var extension: String
 )
 
 @Parcelize
 data class Usuario(var nombre: String) : Parcelable
 
-
-
+@Parcelize
+data class Comicslist2(
+    val title: String?=null,
+    val description: String?=null,
+    val link:String?=null,
+    val llave:String?=null
+) : Parcelable

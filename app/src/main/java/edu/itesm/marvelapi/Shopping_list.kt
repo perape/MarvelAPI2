@@ -2,6 +2,7 @@ package edu.itesm.marvelapi
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -18,8 +19,8 @@ import edu.itesm.marvelapi.databinding.FragmentRegisterBinding
 class Shopping_list : AppCompatActivity() {
     private lateinit var bind: ActivityShoppingListBinding
     private lateinit var recyclerView: RecyclerView
-    private lateinit var manager: RecyclerView.LayoutManager
-    private lateinit var myAdapter: RecyclerView.Adapter<*>
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,18 +38,15 @@ class Shopping_list : AppCompatActivity() {
         bind.shoppingList.apply{
             reference.addValueEventListener(object:ValueEventListener{
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    var comiclist = ArrayList<Comicslist>()
-                    for (Comiclist in snapshot.children){
-                        var objeto = Comiclist.getValue(Comicslist::class.java)
-                        comiclist.add(objeto as Comicslist)
+                    var comiclist = ArrayList<Comicslist2>()
+                    for (compra in snapshot.children){
+                        var objeto = compra.getValue(Comicslist2::class.java)
+                        comiclist.add(objeto as Comicslist2)
+
                     }
-                    if (comiclist.isEmpty()){
-                        Toast.makeText(applicationContext, "Error al cargar los datos", Toast.LENGTH_LONG).show()
-                    }
-                    else {
-                        myAdapter = ShoppingAdapter(comiclist)
-                        manager = LinearLayoutManager(this@Shopping_list)
-                    }
+                        adapter = ShoppingAdapter(comiclist)
+
+                        layoutManager = LinearLayoutManager(this@Shopping_list)
 
                 }
 

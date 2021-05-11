@@ -27,6 +27,7 @@ class ComicsAdapter(private val data: List<Comicslist>?) : RecyclerView.Adapter<
             val myRef = database.getReference("Base")
 
 
+
             title.text = property.title
             //validar
             if (property.description == null) {
@@ -34,9 +35,10 @@ class ComicsAdapter(private val data: List<Comicslist>?) : RecyclerView.Adapter<
             } else {
                 description.text = property.description.substring(0, 100)
             }
+            val link: String=property.thumbnail.path.plus(".jpg")
 
-            Glide.with(view.context)
-                .load(property.thumbnail.path.plus(".jpg"))
+                Glide.with(view.context)
+                .load(link)
                 .circleCrop()
                 .into(imageView)
 
@@ -44,23 +46,34 @@ class ComicsAdapter(private val data: List<Comicslist>?) : RecyclerView.Adapter<
             button.setOnClickListener {
                 if (property.description == null) {
                     val description2 ="Not description"
-                    agregarcomic(property.title,description2,property.thumbnail,myRef)
+                    val compra = Comicslist2(
+                        property.title,
+                        description2,
+                        link.toString()
+                    )
+                    val id =myRef.push().key
+                    myRef.child(id!!).setValue(compra)
+                    Toast.makeText(itemView.getContext(), "se ha agregado al carrito", Toast.LENGTH_LONG).show()
+                    //agregarcomic(property.title,description2,property.thumbnail,myRef)
                 } else {
-                    agregarcomic(property.title,property.description,property.thumbnail,myRef)
+                    //agregarcomic(property.title,property.description,property.thumbnail,myRef)
+
+                    val id =myRef.push().key
+                    val compra = Comicslist2(
+                        property.title,
+                        property.description,
+                        link.toString(),
+                        id.toString()
+                    )
+                    myRef.child(id!!).setValue(compra)
+                    Toast.makeText(itemView.getContext(), "se ha agregado al carrito", Toast.LENGTH_LONG)
                 }
             }
 
         }
        public fun agregarcomic(title:String,description:String,image:Thumbnail,myRef:DatabaseReference) {
            // Toast.makeText(itemView.getContext(), "$title", Toast.LENGTH_LONG).show();
-            val compra = Comicslist(
-                    title,
-                    description,
-                    image
-                )
-                val id =myRef.push().key
-                myRef.child(id!!).setValue(compra)
-           Toast.makeText(itemView.getContext(), "se ha agregado al carrito", Toast.LENGTH_LONG).show()
+
         }
     }
 
